@@ -1,5 +1,8 @@
 import Services from "../components/Services";
 import { partnerIcons } from "../components/partners";
+import Courses from "../components/Courses";
+import { servicesIcons, servicesTitles } from "../components/servicesData";
+import { coursesData } from "../components/coursesData";
 
 import usersJoined from "../images/usersjoined.png";
 import heroImage from "../images/heroimage.png";
@@ -15,7 +18,6 @@ import specialIcon3 from "../images/special-icon-3.png";
 import specialIcon4 from "../images/special-icon-4.png";
 
 const LandingPage = () => {
-  console.log(partnerIcons);
   return (
     <div>
       <header className="w-fill bg-themeColor h-screen flex flex-auto justify-center items-center pl-28 overflow-hidden">
@@ -107,24 +109,68 @@ const LandingPage = () => {
         />
       </section>
 
-      <section className="bg-[#F8F9FC] flex overflow-hidden">
-        <div>
-          <h2 className="font-heading font-bold text-6xl text-[#000F24]">
+      <section className="bg-[#F8F9FC] flex justify-center overflow-hidden px-[120px] space-x-12 2xl:space-x-[130px]">
+        <div className="2xl:w-[702px] w-[500px]">
+          <h2 className="font-heading font-bold text-6xl text-[#000F24] mt-4">
             This is Why We Are Best From Others
           </h2>
-          <p>
+          <p className="mt-4 font-body text-[#A1A1A1] w-[560px]">
             high-defination video is video of higher resolution and quality than
             standard definition. while there’s no standard meaning for high
             definition, generally any standard video image
           </p>
-          <img src={boyMac} alt="boy on Mac" />
+          <img src={boyMac} alt="boy on Mac" className="mt-4" />
         </div>
-        <div className="grid grid-cols-2">
-          <Services />
-          <Services />
-          <Services />
-          <Services />
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+          {servicesIcons.map((icon, index) => (
+            <Services key={index} icon={icon} title={servicesTitles[index]} />
+          ))}
         </div>
+      </section>
+
+      <section className="bg-[#F8F9FC] flex justify-center w-full mt-4 px-[120px] overflow-hidden">
+        <div>
+          <h2 className="font-heading font-bold text-6xl text-center text-body">
+            Browse Our Popular Courses
+          </h2>
+          <p className="text-[#A1A1A1] text-center">
+            high-defination video is video of higher resolution and quality than
+            standard definition. while there’s no standard meaning for high
+            definition, generally any standard video image
+          </p>
+
+          <div className="flex space-x-24 font-body text-[#A1A1A1] font-semibold text-base justify-center">
+            <div className="focus:text-themeColor ">All categories</div>
+            <div>Design</div>
+            <div>Development</div>
+            <div>Marketing</div>
+          </div>
+
+          <div className="mt-12 flex justify-center 2xl:w-[1500px] ">
+            <div className="grid grid-cols-3 gap-x-7">
+              {coursesData.map((data) => (
+                <Courses
+                  title={data.courseTitle}
+                  mentor={data.courseMentor}
+                  price={data.coursePrice}
+                  category={data.courseCategory}
+                  coverImg={data.courseCoverPage}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center mt-5">
+            <button className="bg-themeColor text-[#fff] font-body rounded py-4 text-center px-8">
+              Explore All Courses
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="font-bold font-heading text-6xl text-[#000F24] text-center mt-8">
+          What Our Clients Are Saying
+        </h2>
       </section>
     </div>
   );
