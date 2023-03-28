@@ -40,7 +40,18 @@ export const faqStyles = {
   titleTextSize: "1.5rem",
   titleTextWeight: "1.5rem",
   rowTitleTextSize: "1.5rem",
-  rowContentTextSize: "1rem",
+  rowContentTextSize: "24px",
+};
+
+export const faqMobileStyles = {
+  bgColor: "white",
+  // titleTextColor: "blue",
+
+  rowContentColor: "#A1A1A1",
+  arrowColor: "blue",
+
+  rowTitleTextSize: "14px",
+  rowContentTextSize: "8px",
 };
 
 export const faqConfig = {

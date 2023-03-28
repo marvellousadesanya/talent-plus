@@ -1,7 +1,7 @@
-const Testimonial = ({ name, img }) => {
+const TestimonialTest = ({ name, img }) => {
   return (
-    <div className="bg-[#fff] py-10 px-6 w-[300px] sm:w-[603px] shrink-0 rounded">
-      <p className="text-[#A1A1A1] text-[8px] sm:text-sm">
+    <div className="bg-[#fff] py-10 px-6 w-[603px] shrink-0 rounded">
+      <p className="text-[#A1A1A1] text-sm">
         high-defination video is video of higher resolution and quality than
         standard definition. high-defination video is video of higher resolution
         and quality than standard definition. hbuild your future with our
@@ -15,11 +15,11 @@ const Testimonial = ({ name, img }) => {
         <img src={img} alt="" />
         <div>
           <h3 className="font-bold font-body text-sm">{name}</h3>
-          <p className="text-xs text-[#030202]">Product Designer</p>
+          <p className="text-xs text-[#A1A1A1]">Product Designer</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Testimonial;
+export default TestimonialTest;

@@ -1,10 +1,8 @@
-import course1 from "../images/course-1.png";
-
 const Courses = ({ mentor, title, price, category, coverImg }) => {
   return (
-    <div className="w-[194px] sm:w-[400px] 2xl:w-[30rem] overflow-hidden">
+    <div className="w-[194px] sm:w-[400px] 2xl:w-[30rem] overflow-hidden transition-all duration-300 ease-in-out opacity-100">
       <div className="sm:w-[320px] 2xl:w-[27rem]">
-        <img src={coverImg} alt="" className="w-[176px]" />
+        <img src={coverImg} alt="" className="w-[176px] sm:w-[439px]" />
         <div className="flex justify-between mt-2">
           <p className="bg-[#1E5DCE] text-[6px] sm:text-xs font-body text-themeColor rounded-3xl px-2 bg-opacity-20 font-bold">
             {category}

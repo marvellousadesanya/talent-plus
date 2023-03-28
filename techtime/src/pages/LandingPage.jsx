@@ -7,13 +7,16 @@ import Courses from "../components/Courses";
 import Footer from "../components/Footer";
 import { servicesIcons, servicesTitles } from "../components/servicesData";
 import { coursesData } from "../components/coursesData";
-import Testimonial, { testimonialImages } from "../components/Testimonial";
+import Testimonial from "../components/Testimonial";
+import { allTestimonials } from "../components/testimonialData";
+import NavBarDesktop from "../components/NavBar";
+import NavBarMobile from "../components/NavBarMobile";
 
 import { motion } from "framer-motion";
 
 // FAQ component
 import Faq from "react-faq-component";
-import { faqData } from "../components/faqData";
+import { faqData, faqMobileStyles } from "../components/faqData";
 import { faqStyles } from "../components/faqData";
 import { faqConfig } from "../components/faqData";
 
@@ -35,15 +38,7 @@ import specialIcon2 from "../images/special-icon-2.png";
 import specialIcon3 from "../images/special-icon-3.png";
 import specialIcon4 from "../images/special-icon-4.png";
 
-const images = [
-  { id: 1, imageUrl: "https://picsum.photos/id/1015/603/400" },
-  { id: 2, imageUrl: "https://picsum.photos/id/102/603/400" },
-  { id: 3, imageUrl: "https://picsum.photos/id/104/603/400" },
-  { id: 4, imageUrl: "https://picsum.photos/id/107/603/400" },
-];
-
 const LandingPage = () => {
-  // For carousel
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
@@ -51,29 +46,28 @@ const LandingPage = () => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const paginate = (newSlide) => {
-    setCurrentSlide(newSlide);
+  const filterByCategory = (category) => {
+    setSelectedCategory(category);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide(
-        currentSlide === images.length - 1 ? 0 : currentSlide + 1
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  const filteredCourses = selectedCategory
+    ? coursesData.filter((course) => course.courseCategory === selectedCategory)
+    : coursesData;
+
+  console.log(filteredCourses);
 
   return (
     <div>
+      <NavBarDesktop />
+      <NavBarMobile />
       <header className="w-fill bg-themeColor h-screen block sm:flex flex-auto justify-center items-center sm:pl-28 overflow-hidden">
         <div className="sm:w-[600px]">
           <h1 className="font-bold font-heading sm:text-6xl text-center sm:text-left text-[#fff] text-3xl mt-4">
             Grow Your skills to advance your career path
           </h1>
-          <p className="font-body text-[#fff] mt-4 sm:w-[600px] text-center text-[8px]">
+          <p className="font-body text-[#fff] mt-4 sm:w-[600px] text-center text-[8px] sm:text-xs sm:text-left">
             Build your future with our quality education. The best and largest
             all-in-one
             <br /> online tutoring platform in the world
@@ -86,17 +80,16 @@ const LandingPage = () => {
               Enroll Now
             </button>
           </div>
-          <div className="flex mt-4 space-x-2 justify-center">
+          <div className="mt-4 space-x-2 items-center flex justify-center sm:justify-start">
+            <img src={usersJoined} alt="" className="hidden sm:block" />
             <img
               src={usersJoined}
               alt=""
-              className="sm:hidden w-[121px] h-[32px]"
+              className="sm:hidden block w-[121px]"
             />
-            <img src={usersJoined} alt="" className="hidden sm:block" />
             <h3 className="font-heading text-[#fff]">
               255k+
-              <br />
-              Previews
+              <p className="font-body">Previews</p>
             </h3>
           </div>
         </div>
@@ -149,7 +142,9 @@ const LandingPage = () => {
                   alt=""
                   className="h-[17px] sm:w-8 sm:h-8 text-[8px]"
                 />
-                <p className="text-[8px] font-body font-bold">Audio Classes</p>
+                <p className="text-[8px] sm:text-xs font-body font-bold">
+                  Audio Classes
+                </p>
               </div>
               <div className="bg-[#fff] flex gap-4">
                 <img
@@ -157,7 +152,7 @@ const LandingPage = () => {
                   alt=""
                   className="h-[17px] sm:w-8 sm:h-8 text-[8px]"
                 />
-                <p className="text-[8px]">Live Classes</p>
+                <p className="text-[8px] text-xs">Live Classes</p>
               </div>
               <div className="bg-[#fff] flex gap-4">
                 <img
@@ -165,7 +160,7 @@ const LandingPage = () => {
                   alt=""
                   className="h-[17px] sm:w-8 sm:h-8 "
                 />
-                <p className="text-[8px]">Recorded Classes</p>
+                <p className="text-[8px] text-xs">Recorded Classes</p>
               </div>
               <div className="bg-[#fff] flex gap-4">
                 <img
@@ -173,27 +168,27 @@ const LandingPage = () => {
                   alt=""
                   className="h-[17px] sm:w-8 sm:h-8 "
                 />
-                <p className="text-[8px]">50+ Notes</p>
+                <p className="text-[8px] text-xs">50+ Notes</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="">
-          <img src={manandWoman} alt="" className="sm:hidden block mt-6" />
+          <img src={manandWoman} alt="" className="hidden sm:absolute  mt-6" />
 
           <img src={manMac} alt="" className="hidden sm:block" />
         </div>
         <img
           src={womanMac}
           alt=""
-          className="hidden sm:absolute bottom-4 left-1/2 2xl:left-1/3"
+          className="hidden sm:block sm:absolute bottom-4 left-1/2 2xl:left-1/3"
         />
       </section>
 
       <section className="w-full bg-[#F8F9FC] block sm:flex justify-center overflow-hidden px-4 sm:space-x-14 sm:px-[120px] 2xl:space-x-[130px]">
-        <div className="2xl:w-[702px] sm:w-[500px]">
-          <h2 className="font-heading font-bold text-2xl text-center sm:text-6xl text-[#000F24] mt-4 sm:px-24">
+        <div className="2xl:w-[702px] ">
+          <h2 className="font-heading font-bold text-2xl text-center sm:text-6xl text-[#000F24] mt-4 ">
             This is Why We Are Best From Others
           </h2>
           <p className="mt-4 font-body text-[#A1A1A1] sm:w-[560px] text-center text-[8px] sm:text-base">
@@ -201,7 +196,11 @@ const LandingPage = () => {
             standard definition. while there’s no standard meaning for high
             definition, generally any standard video image
           </p>
-          <img src={boyMac} alt="boy on Mac" className="mt-4 w-[390px]" />
+          <img
+            src={boyMac}
+            alt="boy on Mac"
+            className="mt-4 w-[390px] sm:w-[712px]"
+          />
         </div>
 
         <div className="flex justify-center my-5">
@@ -213,36 +212,56 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-[#F8F9FC] flex justify-center w-full mt-4 px-6 sm:px-[120px] overflow-hidden">
+      <section className="bg-[#F8F9FC] flex justify-center w-full mt-20 px-6 sm:px-[120px] overflow-hidden">
         <div>
           <h2 className="font-heading font-bold text-2xl sm:text-6xl text-center text-body">
             Browse Our Popular Courses
           </h2>
-          <p className="mt-4 font-body text-[#A1A1A1] sm:w-[560px] text-center text-[8px] sm:text-base">
+          <p className="mt-4 font-body text-[#A1A1A1] text-center text-[8px] sm:text-base">
             high-defination video is video of higher resolution and quality than
             standard definition. while there’s no standard meaning for high
             definition, generally any standard video image
           </p>
 
-          <div className="flex space-x-4 sm:space-x-24 font-body text-[#A1A1A1] font-semibold text-base justify-center">
-            <div className="focus:text-themeColor text-[8px] sm:text-xs">
+          <div className="mt-4 flex space-x-4 sm:space-x-24 font-body text-[#A1A1A1] font-semibold text-base justify-center">
+            <button
+              className="focus:text-themeColor text-[8px] sm:text-xs"
+              onClick={() => filterByCategory("")}
+            >
               All categories
-            </div>
-            <div className="text-[8px] sm:text-xs">Design</div>
-            <div className="text-[8px] sm:text-xs">Development</div>
-            <div className="text-[8px] sm:text-xs">Marketing</div>
+            </button>
+            <button
+              className="focus:text-themeColor text-[8px] sm:text-xs"
+              onClick={() => filterByCategory("Design")}
+            >
+              Design
+            </button>
+            <button
+              className="focus:text-themeColor text-[8px] sm:text-xs"
+              onClick={() => filterByCategory("Development")}
+            >
+              Development
+            </button>
+            <button
+              className="focus:text-themeColor text-[8px] sm:text-xs"
+              onClick={() => filterByCategory("Marketing")}
+            >
+              Marketing
+            </button>
           </div>
 
           <div className="mt-12 flex justify-center 2xl:w-[1500px] ">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-7">
-              {coursesData.map((data) => (
-                <Courses
-                  title={data.courseTitle}
-                  mentor={data.courseMentor}
-                  price={data.coursePrice}
-                  category={data.courseCategory}
-                  coverImg={data.courseCoverPage}
-                />
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-7 gap-y-12">
+              {filteredCourses.map((data) => (
+                <div className="">
+                  <Courses
+                    title={data.courseTitle}
+                    mentor={data.courseMentor}
+                    price={data.coursePrice}
+                    category={data.courseCategory}
+                    coverImg={data.courseCoverPage}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -258,107 +277,41 @@ const LandingPage = () => {
         <h2 className=" font-bold font-heading text-2xl sm:text-6xl text-[#000F24] text-center mt-8">
           What Our Clients Are Saying
         </h2>
-        <p className="text-base text-[#A1A1A1] text-center px-[300px] py-8">
+        <p className="text-base text-[#A1A1A1] text-center text-[8px] px-4 py-8">
           high-defination video is video of higher resolution and quality than
           standard definition. while there’s no standard meaning for high
           definition, generally any standard video image
         </p>
 
-        <div className="">
-          <motion.div ref={carousel} whileTap={{ cursor: "grabbing" }}>
-            <motion.div
-              drag="x"
-              dragConstraints={{ right: 0, left: -width }}
-              className="flex flex-auto space-x-4"
-            >
-              <motion.div
-                // style={{
-                //   x: `-${currentSlide * 603}px`,
-                // }}
-                // drag="x"
-                // dragConstraints={{ left: 0, right: 0 }}
-
-                className="bg-[#fff] w-[603px] shrink-0 rounded"
-              >
-                <p className="text-[#A1A1A1] text-sm">
-                  high-defination video is video of higher resolution and
-                  quality than standard definition. high-defination video is
-                  video of higher resolution and quality than standard
-                  definition. hbuild your future with our quality education. the
-                  best and largest all-in-one online tutoring platform in the
-                  worldd definition. high-defination video is video of higher
-                  resolution and quality than standard definition. build your
-                  future with our quality education. the best and largest
-                  all-in-one online tutoring platform in the world
-                </p>
-                <div className="flex">
-                  <img src="" alt="" />
-                  <div>
-                    <h3 className="font-bold font-body text-sm">Bella Moon</h3>
-                    <p className="text-xs text-[#A1A1A1]">Product Designer</p>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                // style={{
-                //   x: `-${currentSlide * 603}px`,
-                // }}
-                // drag="x"
-                // dragConstraints={{ left: 0, right: "-603px" }}
-                className="bg-[#fff] w-[603px] shrink-0 rounded"
-              >
-                <p>
-                  high-defination video is video of higher resolution and
-                  quality than standard definition. high-defination video is
-                  video of higher resolution and quality than standard
-                  definition. hbuild your future with our quality education. the
-                  best and largest all-in-one online tutoring platform in the
-                  worldd definition. high-defination video is video of higher
-                  resolution and quality than standard definition. build your
-                  future with our quality education. the best and largest
-                  all-in-one online tutoring platform in the world
-                </p>
-              </motion.div>
-              <motion.div className="bg-[#fff] w-[603px] shrink-0 rounded">
-                <p>
-                  high-defination video is video of higher resolution and
-                  quality than standard definition. high-defination video is
-                  video of higher resolution and quality than standard
-                  definition. hbuild your future with our quality education. the
-                  best and largest all-in-one online tutoring platform in the
-                  worldd definition. high-defination video is video of higher
-                  resolution and quality than standard definition. build your
-                  future with our quality education. the best and largest
-                  all-in-one online tutoring platform in the world
-                </p>
-              </motion.div>
-              <motion.div className="bg-[#fff] w-[603px] shrink-0 rounded">
-                <p>
-                  high-defination video is video of higher resolution and
-                  quality than standard definition. high-defination video is
-                  video of higher resolution and quality than standard
-                  definition. hbuild your future with our quality education. the
-                  best and largest all-in-one online tutoring platform in the
-                  worldd definition. high-defination video is video of higher
-                  resolution and quality than standard definition. build your
-                  future with our quality education. the best and largest
-                  all-in-one online tutoring platform in the world
-                </p>
-              </motion.div>
-            </motion.div>
+        {/* {allTestimonials.map((testi) => (
+          <TestimonialTest name={testi.name} img={testi.img} />
+        ))} */}
+        <motion.div
+          ref={carousel}
+          className="carousel"
+          whileTap={{ cursor: "grabbing" }}
+        >
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 0, left: -width }}
+            className="flex"
+          >
+            {allTestimonials.map((testimonial) => (
+              <Testimonial name={testimonial.name} img={testimonial.img} />
+            ))}
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="bg-themeColor flex justify-center w-full sm:px-[120px] py-12">
         <div>
-          <h4 className="text-center text-[#fff] font-body text-[8px]">
+          <h4 className="text-center text-[#fff] font-body text-[8px] sm:text-xs">
             JOIN OUR COMMUNITY
           </h4>
           <h2 className="font-heading text-2xl sm:text-6xl font-bold text-[#fff] text-center 2xl:w-[1200px]">
             Are you ready to connect with the future talent of the tech world?
           </h2>
-          <p className="text-center text-[8px] text-xs text-[#fff] font-body">
+          <p className="text-center text-[8px] sm:text-xs text-[#fff] font-body">
             Meet up with other techstars and grow together
           </p>
           <div className="flex justify-center">
@@ -366,7 +319,7 @@ const LandingPage = () => {
           </div>
 
           <div className="flex justify-center">
-            <button className="text-themeColor text-[8px] bg-[#fff] font-body font-bold px-3 sm:px-8 py-2 sm:py-3 rounded">
+            <button className="text-themeColor text-[8px] sm:text-xs bg-[#fff] font-body font-bold px-3 sm:px-8 py-2 sm:py-3 rounded">
               Join our Community
             </button>
           </div>
@@ -378,54 +331,24 @@ const LandingPage = () => {
           <h2 className="font-heading text-2xl sm:text-6xl font-bold text-[#000F24] text-center 2xl:w-[1200px]">
             Frequently Asked Questions
           </h2>
-          <p className="text-[#A1A1A1] text-[8px] sm:text-xs text-center">
+          <p className="mt-4 text-[#A1A1A1] text-[8px] sm:text-xs text-center">
             high-defination video is video of higher resolution and quality than
             standard definition. while there’s no standard meaning for high
             definition, generally any standard video image
           </p>
 
           <div className="font-body sm:px-[100px] font-bold px-4">
-            <Faq styles={faqStyles} data={faqData} config={faqConfig} />
+            {/* For Desktop */}
+            <div className="block sm:hidden">
+              <Faq styles={faqMobileStyles} data={faqData} config={faqConfig} />
+            </div>
+            {/* For Mobile */}
+            <div className="hidden sm:block">
+              <Faq styles={faqStyles} data={faqData} config={faqConfig} />
+            </div>
           </div>
         </div>
       </section>
-
-      {/* <section className="py-12">
-        <div className="carousel-container">
-          <div className="carousel flex">
-            {images.map((image, index) => (
-              <motion.div
-                key={index}
-                className="carousel-item"
-                style={{
-                  x: `-${currentSlide * 603}px`,
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-              >
-                <img src={image.imageUrl} alt={`Carousel item ${index}`} />
-              </motion.div>
-            ))}
-          </div>
-          <div className="flex">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className={`w-4 h-4 rounded-full ${
-                  index === currentSlide ? "bg-themeColor" : "bg-[#A1A1A1]"
-                }`}
-                onClick={() => paginate(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* <section className="w-full flex-auto">
-        {testimonialImages.map((testimonial) => (
-          <Testimonial img={testimonial} />
-        ))}
-      </section> */}
 
       <Footer />
     </div>
