@@ -6,7 +6,7 @@ const NavBarMobile = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   return (
-    <nav className="block sm:hidden px-8 w-full bg-themeColor">
+    <nav className="block sm:hidden px-8 w-full bg-themeColor pt-5">
       <div>
         <div className="flex w-full justify-between">
           <div>

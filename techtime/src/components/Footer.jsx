@@ -12,8 +12,10 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className="font-heading font-semibold text-3xl">Useful Links</h3>
-          <ul className="font-body text-2xl font-thin">
+          <h3 className="font-heading font-semibold text-2xl sm:text-3xl">
+            Useful Links
+          </h3>
+          <ul className="font-body text-base sm:text-2xl font-thin">
             <li>Home</li>
             <li>About</li>
             <li>Contact Us</li>
@@ -23,8 +25,10 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className="font-heading font-semibold text-3xl">Community</h3>
-          <ul className="font-body text-2xl">
+          <h3 className="font-heading font-semibold text-2xl sm:text-3xl">
+            Community
+          </h3>
+          <ul className="font-body text-base sm:text-2xl">
             <li>Help Centers</li>
             <li>Partners</li>
             <li>Suggestion</li>
@@ -34,7 +38,9 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className="font-heading font-semibold text-3xl">Subscribe</h3>
+          <h3 className="font-heading font-semibold text-2xl sm:text-3xl">
+            Subscribe
+          </h3>
           <input
             type="text"
             className="bg-[#2A2A2B] h-11 border border-themeColor rounded-l"

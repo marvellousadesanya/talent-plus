@@ -65,7 +65,7 @@ const LandingPage = () => {
     <div>
       <NavBarDesktop />
       <NavBarMobile />
-      <header className="w-fill bg-themeColor h-screen block sm:flex flex-auto justify-center items-center sm:pl-28 overflow-hidden">
+      <header className="relative w-fill bg-themeColor h-screen block sm:flex flex-auto justify-center items-center sm:pl-28 overflow-hidden">
         <div className="sm:w-[600px]">
           <h1 className="font-bold font-heading sm:text-6xl text-center sm:text-left text-[#fff] text-3xl mt-4">
             Grow Your skills to advance your career path
@@ -96,12 +96,16 @@ const LandingPage = () => {
             </h3>
           </div>
         </div>
-        <img src={decorArrow} alt="" className="absolute bottom-0" />
+        <img
+          src={decorArrow}
+          alt=""
+          className="absolute w-[74px] sm:w-[111px] top-1/4 right-2 rotate-45 sm:rotate-0 sm:bottom-0 "
+        />
         <div>
           <img
             src={heroImage}
             alt="hero image"
-            className="w-[1000px] h-[700px] sm:w-[800px] self-center"
+            className=" mb-0 pb-0 sm:mt-0 h-[590px] w-[363px] sm:block sm:h-[700px] sm:w-[800px] self-center"
           />
         </div>
       </header>
@@ -117,7 +121,7 @@ const LandingPage = () => {
         ))}
       </section>
 
-      <section className=" bg-[#F8F9FC] relative sm:h-[700px] px-6 sm:px-[120px] block sm:flex 2xl:space-x-24 justify-center items-center">
+      <section className="mt-10 sm:mt-20 bg-[#F8F9FC] relative sm:h-[700px] px-6 sm:px-[120px] block sm:flex 2xl:space-x-24 justify-center items-center">
         <div className="2xl:w-[694px]">
           <h2 className="font-bold font-heading text-2xl text-center sm:text-left sm:text-6xl text-[#000F24] sm:h-[140px]">
             High Quality video, audio & live classes
@@ -144,7 +148,7 @@ const LandingPage = () => {
                 <img
                   src={specialIcon1}
                   alt=""
-                  className="h-[17px] sm:w-8 sm:h-8 text-[8px]"
+                  className="h-[17px] w-4 sm:w-12 sm:h-12 text-[8px]"
                 />
                 <p className="text-[8px] sm:text-xs font-body font-bold">
                   Audio Classes
@@ -154,7 +158,7 @@ const LandingPage = () => {
                 <img
                   src={specialIcon2}
                   alt=""
-                  className="h-[17px] sm:w-8 sm:h-8 text-[8px]"
+                  className="h-[17px] w-4 sm:w-12 sm:h-12 text-[8px]"
                 />
                 <p className="text-[8px] text-xs">Live Classes</p>
               </div>
@@ -162,7 +166,7 @@ const LandingPage = () => {
                 <img
                   src={specialIcon3}
                   alt=""
-                  className="h-[17px] sm:w-8 sm:h-8 "
+                  className="h-[17px] w-4 sm:w-12 sm:h-12 "
                 />
                 <p className="text-[8px] text-xs">Recorded Classes</p>
               </div>
@@ -170,7 +174,7 @@ const LandingPage = () => {
                 <img
                   src={specialIcon4}
                   alt=""
-                  className="h-[17px] sm:w-8 sm:h-8 "
+                  className="h-[17px] w-4 sm:w-12 sm:h-12 "
                 />
                 <p className="text-[8px] text-xs">50+ Notes</p>
               </div>
@@ -179,7 +183,7 @@ const LandingPage = () => {
         </div>
 
         <div className="">
-          <img src={manandWoman} alt="" className="hidden sm:absolute  mt-6" />
+          <img src={manandWoman} alt="" className="block sm:hidden  mt-6" />
 
           <img src={manMac} alt="" className="hidden sm:block" />
         </div>
@@ -190,7 +194,7 @@ const LandingPage = () => {
         />
       </section>
 
-      <section className="w-full bg-[#F8F9FC] block sm:flex justify-center overflow-hidden px-4 sm:space-x-14 sm:px-[120px] 2xl:space-x-[130px]">
+      <section className="mt-10 sm:mt-20 w-full bg-[#F8F9FC] block sm:flex justify-center overflow-hidden px-4 sm:space-x-14 sm:px-[120px] 2xl:space-x-[130px]">
         <div className="2xl:w-[702px] ">
           <h2 className="font-heading font-bold text-2xl text-center sm:text-6xl text-[#000F24] mt-4 ">
             This is Why We Are Best From Others
@@ -216,7 +220,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-[#F8F9FC] flex justify-center w-full mt-20 px-6 sm:px-[120px] overflow-hidden">
+      <section className="bg-[#F8F9FC] flex justify-center w-full mt-10 sm:mt-20 px-6 sm:px-[120px] overflow-hidden">
         <div>
           <h2 className="font-heading font-bold text-2xl sm:text-6xl text-center text-body">
             Browse Our Popular Courses
