@@ -38,6 +38,9 @@ import specialIcon2 from "../images/special-icon-2.png";
 import specialIcon3 from "../images/special-icon-3.png";
 import specialIcon4 from "../images/special-icon-4.png";
 
+// Decorative Images
+import decorArrow from "../images/decorative-img-arrow.png";
+
 const LandingPage = () => {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
@@ -93,6 +96,7 @@ const LandingPage = () => {
             </h3>
           </div>
         </div>
+        <img src={decorArrow} alt="" className="absolute bottom-0" />
         <div>
           <img
             src={heroImage}
