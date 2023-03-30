@@ -18,3 +18,6 @@ Dockerization not implemented at the time of this project. Will be implemented i
 
 ## Deployed site
 https://talent-plus-tz86.vercel.app/
+
+## Demo video
+https://youtu.be/Nn2RwgmWPds
