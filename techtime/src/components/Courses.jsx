@@ -1,9 +1,9 @@
 const Courses = ({ mentor, title, price, category, coverImg }) => {
   return (
-    <div className="w-[194px] sm:w-[400px] 2xl:w-[30rem] overflow-hidden transition-all duration-300 ease-in-out opacity-100">
+    <div className="w-[194px] md:w-[400px] 2xl:w-[30rem] overflow-hidden transition-all duration-300 ease-in-out opacity-100">
       <div className="sm:w-[320px] 2xl:w-[27rem]">
         <img src={coverImg} alt="" className="w-[176px] sm:w-[439px]" />
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between mt-2 pr-4">
           <p className="bg-[#1E5DCE] text-[6px] sm:text-xs font-body text-themeColor rounded-3xl px-2 bg-opacity-20 font-bold">
             {category}
           </p>
@@ -12,7 +12,7 @@ const Courses = ({ mentor, title, price, category, coverImg }) => {
         <h3 className="text-[#000F24] font-bold font-heading text-[8px] sm:text-2xl mt-2 sm:mt-4">
           {title}
         </h3>
-        <div className="flex justify-between font-body text-[5px] sm:text-base text-[#A1A1A1] pr-3">
+        <div className="flex justify-between font-body text-[5px] sm:text-base text-[#A1A1A1] pr-4">
           <p>23 hrs ago</p>
           <p>15 Lessons</p>
         </div>

@@ -2,8 +2,8 @@ import logo from "../images/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="sm:h-[700px] h-[1028px] bg-[#000F24] text-[#fff] flex items-center w-full">
-      <div className="sm:flex block ml-4 sm:ml-0 justify-around w-full space-y-12 sm:space-y-2">
+    <footer className="h-[1028px] lg:h-[700px]  bg-[#000F24] text-[#fff] flex items-center w-full">
+      <div className=" block lg:flex ml-4 md:ml-12 sm:ml-0 justify-around w-full space-y-12 lg:space-y-2">
         <div>
           <img src={logo} alt="" />
           <p className="font-body">
