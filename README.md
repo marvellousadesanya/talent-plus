@@ -15,3 +15,6 @@ To run production build:
 
 ## Key things to consider
 Dockerization not implemented at the time of this project. Will be implemented in future iterations
+
+## Deployed site
+https://talent-plus-tz86.vercel.app/
