@@ -1,11 +1,14 @@
-# talent-plus
+# talent-plus Landing Page
 
-# Starting application
-To start this application
+## About Project
+This is a simple landing page showcasing a landing page for Techtime. Built with ReactJS and TailwindCSS. 
 
-# cd techtime
-# npm install
-# cd npm run dev
+## Starting application
+To start this application, follow the steps below:
 
-# Key things to consider
+### cd techtime
+### npm install
+### cd npm run dev
+
+## Key things to consider
 Dockerization not implemented at the time of this project. Will be implemented in future iterations
