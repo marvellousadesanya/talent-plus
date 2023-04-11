@@ -14,7 +14,7 @@ To run production build:
 `vite start`
 
 ## Key things to consider
-Dockerization not implemented at the time of this project. Will be implemented in future iterations
+Dockerization implemented. Visit localhost:5173 to run Dockerization container.
 
 ## Deployed site
 https://talent-plus-tz86.vercel.app/
